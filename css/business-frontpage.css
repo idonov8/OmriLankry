@@ -6,3 +6,8 @@
 body {
   padding-top: 56px;
 }
+
+.bg-primary{
+  background-color: rgba(255, 140, 0, 0.755) !important;
+}
+
