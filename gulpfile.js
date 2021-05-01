@@ -1,61 +1,30 @@
-"use strict";
+var gulp = require('gulp');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var watch = require('gulp-watch');
+var gutil = require('gulp-util');
+var browserify = require('browserify');
+var babel = require('gulp-babel');
 
-// Load plugins
-const browsersync = require("browser-sync").create();
-const del = require("del");
-const gulp = require("gulp");
-const merge = require("merge-stream");
+gulp.task('transform', function() {
+    return gulp.src('./app/src/**/*.jsx')
+        .pipe(babel({
+            presets: ["react", "es2015"]
+        }))
+        .pipe(gulp.dest('./app/dist'));
+})
 
-// BrowserSync
-function browserSync(done) {
-  browsersync.init({
-    server: {
-      baseDir: "./"
-    },
-    port: 3000
-  });
-  done();
-}
+gulp.task('js', ['transform'], function() {
+    // Assumes a file has been transformed from
+    // ./app/src/main.jsx to ./app/dist/main.js
+    return browserify('./app/dist/main.js')
+        .bundle()
+        .on('error', gutil.log)
+        .pipe(source('main.js'))
+        .pipe(buffer())
+        .pipe(gulp.dest('./'))
+});
 
-// BrowserSync reload
-function browserSyncReload(done) {
-  browsersync.reload();
-  done();
-}
-
-// Clean vendor
-function clean() {
-  return del(["./vendor/"]);
-}
-
-// Bring third party dependencies from node_modules into vendor directory
-function modules() {
-  // Bootstrap
-  var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
-    .pipe(gulp.dest('./vendor/bootstrap'));
-  // jQuery
-  var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
-    .pipe(gulp.dest('./vendor/jquery'));
-  return merge(bootstrap, jquery);
-}
-
-// Watch files
-function watchFiles() {
-  gulp.watch("./**/*.css", browserSyncReload);
-  gulp.watch("./**/*.html", browserSyncReload);
-}
-
-// Define complex tasks
-const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor);
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
-
-// Export tasks
-exports.clean = clean;
-exports.vendor = vendor;
-exports.build = build;
-exports.watch = watch;
-exports.default = build;
+gulp.task('default', ['js'], function() {
+    gulp.watch('./app/**/*.jsx', ['js']);
+});
