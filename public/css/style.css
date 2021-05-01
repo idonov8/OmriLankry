@@ -280,23 +280,23 @@ header .intro-text {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* About Section */
-#about {
+/* Solution Section */
+#solution {
   padding: 100px 0;
 }
 
-#about h3 {
+#solution h3 {
   font-size: 22px;
   margin: 0 0 20px 0;
 }
 
-#about h2 {
+#solution h2 {
   position: relative;
   margin-bottom: 15px;
   padding-bottom: 15px;
 }
 
-#about h2::after {
+#solution h2::after {
   position: absolute;
   content: "";
   background: linear-gradient(to right, #FFAC70 0%, #F56600 100%);
@@ -306,14 +306,14 @@ header .intro-text {
   left: 0;
 }
 
-#about .about-text li {
+#solution .solution-text li {
   margin-bottom: 6px;
   margin-left: 6px;
   list-style: none;
   padding: 0;
 }
 
-#about .about-text li:before {
+#solution .solution-text li:before {
   content: "";
   font-family: "FontAwesome";
   color: #FFAC70;
@@ -322,17 +322,20 @@ header .intro-text {
   padding-right: 8px;
 }
 
-#about img {
-  width: 520px;
+#solution img {
+  width: 240px;
   margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
   background: #fff;
   border-right: 0;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 
-#about p {
+#solution p {
   line-height: 24px;
   margin: 30px 0;
+  font-size: 18;
 }
 
 /* Services Section */
@@ -678,7 +681,7 @@ label {
 }
 
 @media (max-width: 768px) {
-  #about img {
+  #solution img {
     margin: 50px 0;
   }
 }

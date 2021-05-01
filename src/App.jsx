@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Navigation } from './components/navigation'
 import { Header } from './components/header'
 import { Problem } from './components/problem'
-import { About } from './components/about'
+import { Solution } from './components/solution'
 import { Features } from './components/features'
 import { Team } from './components/Team'
 import { Contact } from './components/contact'
@@ -25,7 +25,7 @@ const App = () => {
       <Navigation />
       <Header data={landingPageData.Header} />
       <Problem data={landingPageData.Features} />
-      <About data={landingPageData.About} />
+      <Solution data={landingPageData.Solution} />
       <Features data={landingPageData.Services} />
       <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
