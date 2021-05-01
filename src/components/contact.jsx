@@ -20,7 +20,7 @@ export const Contact = (props) => {
     console.log(name, email, message)
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
+        process.env.SERVICE_ID,process.env.TEMPLATE_ID , e.target, process.env.USER_ID
       )
       .then(
         (result) => {
@@ -98,12 +98,7 @@ export const Contact = (props) => {
           <div className='col-md-3 col-md-offset-1 contact-info'>
             <div className='contact-item'>
               <h3>Contact Info</h3>
-              <p>
-                <span>
-                  <i className='fa fa-map-marker'></i> Address
-                </span>
-                {props.data ? props.data.address : 'loading'}
-              </p>
+              
             </div>
             <div className='contact-item'>
               <p>
@@ -116,45 +111,17 @@ export const Contact = (props) => {
             <div className='contact-item'>
               <p>
                 <span>
-                  <i className='fa fa-envelope-o'></i> Email
+                  <i className='fa fa-envelope'></i> Email
                 </span>{' '}
                 {props.data ? props.data.email : 'loading'}
               </p>
-            </div>
-          </div>
-          <div className='col-md-12'>
-            <div className='row'>
-              <div className='social'>
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : '/'}>
-                      <i className='fa fa-facebook'></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : '/'}>
-                      <i className='fa fa-twitter'></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.youtube : '/'}>
-                      <i className='fa fa-youtube'></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </div>
       <div id='footer'>
         <div className='container text-center'>
-          <p>
-            &copy; 2020 Issaaf Kattan React Land Page Template. Design by{' '}
-            <a href='http://www.templatewire.com' rel='nofollow'>
-              TemplateWire
-            </a>
-          </p>
+          
         </div>
       </div>
     </div>
