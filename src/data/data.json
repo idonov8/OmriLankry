@@ -113,24 +113,19 @@
         "youtube": "youtube.com"
     },
     "Features": [{
-            "icon": "fa fa-comments-o",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "icon": "fa fa-calendar",
+            "title": "Can't plan diet smartly",
+            "text": ""
         },
         {
-            "icon": "fa fa-bullhorn",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "icon": "fa fa-question",
+            "title": "Don't know what, when and how to cook",
+            "text": ""
         },
         {
-            "icon": "fa fa-group",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
-        },
-        {
-            "icon": "fa fa-magic",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "icon": "fa fa-drumstick-bite",
+            "title": "food is wasted every day",
+            "text": ""
         }
     ]
 }
