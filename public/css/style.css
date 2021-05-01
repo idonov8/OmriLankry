@@ -116,7 +116,7 @@ hr {
   bottom: -1px;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, #F56600 0%, #FFAC70 100%);
+  background: linear-gradient(to right, #00888F 0%, #00C2CC 100%);
   content: "";
   transition: width 0.2s;
 }
@@ -136,7 +136,7 @@ hr {
   bottom: -1px !important;
   width: 100% !important;
   height: 2px !important;
-  background: linear-gradient(to right, #F56600 0%, #FFAC70 100%) !important;
+  background: linear-gradient(to right, #00888F 0%, #00C2CC 100%) !important;
   content: "" !important;
   transition: width 0.2s !important;
 }
@@ -227,6 +227,18 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
   -o-background-size: cover;
 }
 
+.intro a {
+  background-color: #00C2CC;
+  background-image: linear-gradient(to right, #00C2CC 0%, #00888F 100%);
+  color: #fff;
+}
+
+.intro a:hover {
+  background: #00888F;
+  color: #fff;
+  background-image: none;
+}
+
 .intro .overlay {
   background: rgba(0, 0, 0, 0.2);
 }
@@ -261,13 +273,13 @@ header .intro-text {
   text-align: center;
 }
 
-/* Features Section */
-#features {
+/* Problem Section */
+#problem {
   padding: 100px 0;
   background: #f6f6f6;
 }
 
-#features i.fa {
+#problem i.fa {
   font-size: 38px;
   margin-bottom: 20px;
   transition: all 0.5s;
@@ -299,7 +311,7 @@ header .intro-text {
 #solution h2::after {
   position: absolute;
   content: "";
-  background: linear-gradient(to right, #FFAC70 0%, #F56600 100%);
+  background: linear-gradient(to right, #00C2CC 0%, #00888F 100%);
   height: 4px;
   width: 60px;
   bottom: 0;
@@ -338,22 +350,22 @@ header .intro-text {
   font-size: 18;
 }
 
-/* Services Section */
-#services {
+/* Features Section */
+#features {
   padding: 100px 0;
-  background: linear-gradient(to right, #F56600 0%, #FFAC70 100%);
+  background: linear-gradient(to right, #00888F 0%, #00C2CC 100%);
   color: #fff;
 }
 
-#services .service-desc {
+#features .service-desc {
   margin: 10px 10px 20px;
 }
 
-#services h2 {
+#features h2 {
   color: #fff;
 }
 
-#services .section-title h2::after {
+#features .section-title h2::after {
   position: absolute;
   content: "";
   background: rgba(255, 255, 255, 0.3);
@@ -364,29 +376,39 @@ header .intro-text {
   left: 50%;
 }
 
-#services i.fa {
+#features i.fa {
   font-size: 42px;
   width: 120px;
   height: 120px;
   padding: 40px 0;
-  background: linear-gradient(to right, #F56600 0%, #FFAC70 100%);
+  background: linear-gradient(to right, #00C2CC 0%, #00888F 100%);
   border-radius: 50%;
   color: #fff;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
-#services h3 {
+#features h3 {
   font-weight: 500;
   padding: 5px 0;
   color: #fff;
 }
 
-#services p {
+#features p {
   color: rgba(255, 255, 255, 0.75);
 }
 
-#services .service-desc {
+#features .service-desc {
   margin-bottom: 40px;
+}
+
+/* Slides Section */
+#slides {
+  padding: 100px 0;
+  background: #f6f6f6;
+}
+
+#slides .section-title {
+  margin-bottom: auto;
 }
 
 /* Portfolio Section */
