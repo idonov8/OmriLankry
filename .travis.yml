@@ -2,7 +2,7 @@ sudo:          false
 language:      node_js
 node_js:
   - "node"
-install:       npm install
+install:       yarn install
 script:
   - npm test
   - gulp
