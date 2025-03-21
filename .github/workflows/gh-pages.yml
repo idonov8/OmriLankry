@@ -1,42 +1,30 @@
-name: GitHub Pages
+name: Deploy GitHub Pages
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  build:
-    runs-on: ubuntu-22.04  # use explicit runner version
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install dependencies with Yarn
-        uses: Borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
-      - name: Build
-        uses: Borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./build
-
   deploy:
-    needs: build
-    runs-on: ubuntu-22.04  # use same runner version here
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04  # explicitly using ubuntu-22.04 for stability
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build React App
+        run: yarn build
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
