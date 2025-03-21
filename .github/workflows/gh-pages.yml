@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this if your default branch is master
+      - main
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # use explicit runner version
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies with Yarn
@@ -32,7 +32,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # use same runner version here
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
