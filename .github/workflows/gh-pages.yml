@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Change this if your default branch is master
 
 permissions:
   contents: read
@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Install dependencies with Yarn
+        uses: Borales/actions-yarn@v2.3.0
         with:
-          node-version: '20'
-      - name: Install dependencies
-        run: npm install
+          cmd: install
       - name: Build
-        run: npm run build
+        uses: Borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload Pages artifact
